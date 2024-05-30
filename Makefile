@@ -18,7 +18,7 @@ clean :
 	rm -f ${OBJS} ${BNS_OBJS}
 
 fclean : clean
-	rm -f libft.a
+	rm -f libftprintf.a
 
 re : fclean all
 
