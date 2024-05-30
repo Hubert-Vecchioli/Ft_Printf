@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:33:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 16:26:12 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:47:15 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ int	ft_printf(const char *str, ...)
 	va_list		args;
 	int			result;
 
-	if (!str || !*str)
+	if (!str)
+		return (-1);
+	if (!*str)
 		return (0);
 	result = 0;
 	va_start(args, str);
