@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:57:52 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 10:10:46 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:12:58 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,56 +15,43 @@
 
 size_t	ft_hex_len(unsigned int nbr)
 {
-	size_t	len;
+	size_t	count;
 
-	len = 0;
+	count = 0;
 	while (nbr != 0)
 	{
 		nbr /= 16;
-		len++;
+		count++;
 	}
-	return (len);
+	return (count);
 }
 
-void	ft_put_hex_lower(unsigned int nbr)
+size_t	ft_print_hex(unsigned long long nbr, char c)
 {
-	if (nbr >= 16)
-	{
-		ft_put_hex_lower(nbr / 16);
-		ft_put_hex_lower(nbr % 16);
-	}
-	else
-	{
-		if (nbr <= 9)
-			ft_putchar_fd(nbr + '0', 1);
-		else
-			ft_putchar_fd(nbr - 10 + 'a', 1);
-	}
-}
-
-void	ft_put_hex_upper(unsigned int nbr)
-{
-	if (nbr >= 16)
-	{
-		ft_put_hex_upper(nbr / 16);
-		ft_put_hex_upper(nbr % 16);
-	}
-	else
-	{
-		if (nbr <= 9)
-			ft_putchar_fd(nbr + '0', 1);
-		else
-			ft_putchar_fd(nbr - 10 + 'A', 1);
-	}
-}
-
-size_t	ft_put_hex(unsigned int nbr, char format)
-{
+	char *base_up;
+	char *base_low;
+	
+	base_up ="0123456789ABCDEF";
+	base_low ="0123456789abcdef";
+	
 	if (nbr == 0)
 		return (ft_putchar_fd('0', 1));
-	if (format == 'x')
-		ft_put_hex_lower(nbr);
-	else if (format == 'X')
-		ft_put_hex_upper(nbr);
+	if (c == 'x')
+		ft_put_hex(nbr, base_low);
+	else if (c == 'X')
+		ft_put_hex(nbr, base_up);
 	return (ft_hex_len(nbr));
+}
+
+void	ft_put_hex(unsigned int nbr, char *base)
+{
+	if (nbr >= 16)
+	{
+		ft_put_hex(nbr / 16, base);
+		ft_put_hex(nbr % 16, base);
+	}
+	else
+	{
+		write(1, (base + nbr), 1);
+	}
 }

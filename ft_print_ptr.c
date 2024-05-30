@@ -6,49 +6,23 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:08:54 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 10:08:56 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 13:11:51 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-size_t	ft_uintptr_len(unsigned long long nbr)
+size_t	ft_print_ptr(unsigned long long ptr)
 {
 	size_t	len;
+	char *base_low;
 
-	len = 0;
-	while (nbr != 0)
-	{
-		nbr /= 16;
-		len++;
-	}
-	return (len);
-}
-
-void	ft_put_uintptr_hex(unsigned long long nbr)
-{
-	if (nbr >= 16)
-	{
-		ft_put_uintptr_hex(nbr / 16);
-		ft_put_uintptr_hex(nbr % 16);
-	}
-	else
-	{
-		if (nbr <= 9)
-			ft_putchar_fd(nbr + '0', 1);
-		else
-			ft_putchar_fd(nbr - 10 + 'a', 1);
-	}
-}
-
-size_t	ft_put_uintptr(unsigned long long ptr)
-{
-	size_t	len;
+	base_low ="0123456789abcdef";
 
 	if (ptr == 0)
 		return (ft_putstr_fd("(nil)", 1));
 	len = ft_putstr_fd("0x", 1);
-	ft_put_uintptr_hex(ptr);
-	len += ft_uintptr_len(ptr);
+	ft_put_hex(ptr, base_low);
+	len += ft_hex_len(ptr);
 	return (len);
 }
