@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:16:35 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 13:15:28 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 15:59:08 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ft_putchar_fd(char c, int fd)
 size_t	ft_putstr_fd(char *s, int fd)
 {
 	if (s == NULL)
-		return (ft_putstr_fd("(null)", 1));	
+		return (ft_putstr_fd("(null)", 1));
 	write(fd, s, ft_strlen(s));
 	return (ft_strlen(s));
 }
@@ -42,8 +42,7 @@ size_t	ft_putnbr_fd(int n, int fd)
 	}
 	if (nb / 10 != 0)
 	{
-		ft_putnbr_fd(nb / 10, fd);
-		count++;
+		count += ft_putnbr_fd(nb / 10, fd);
 	}
 	ft_putchar_fd(nb % 10 + '0', fd);
 	return (count + 1);

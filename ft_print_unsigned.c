@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:57:38 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 13:15:02 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 16:01:24 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 size_t	ft_print_unsigned(unsigned int n, int fd)
 {
-	unsigned	nb;
-	size_t	count;
+	size_t			nb;
+	size_t			count;
 
 	count = 0;
 	nb = n;
@@ -27,8 +27,7 @@ size_t	ft_print_unsigned(unsigned int n, int fd)
 	}
 	if (nb / 10 != 0)
 	{
-		ft_print_unsigned(nb / 10, fd);
-		count++;
+		count += ft_print_unsigned(nb / 10, fd);
 	}
 	ft_putchar_fd(nb % 10 + '0', fd);
 	return (count + 1);
