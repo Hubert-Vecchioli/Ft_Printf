@@ -6,9 +6,10 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 14:57:52 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/29 16:48:19 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/30 10:10:46 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "ft_printf.h"
 
@@ -60,7 +61,7 @@ void	ft_put_hex_upper(unsigned int nbr)
 size_t	ft_put_hex(unsigned int nbr, char format)
 {
 	if (nbr == 0)
-		return (ft_putchar_fd('0', 1));// to re do
+		return (ft_putchar_fd('0', 1));
 	if (format == 'x')
 		ft_put_hex_lower(nbr);
 	else if (format == 'X')
