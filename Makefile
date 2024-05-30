@@ -1,5 +1,3 @@
-
-
 SRCS	= ft_printf.c ft_print_hex.c ft_print_ptr.c ft_print_unsigned.c libft_put.c 
 
 OBJS	=  ${SRCS:.c=.o}
