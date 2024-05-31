@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:33:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/31 14:09:42 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:18:47 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	ft_parse(const char *str, va_list args)
 		{
 			return (-1);
 		}
-		else 
+		else
 		{
 			ft_putchar_fd(str[i], STDOUT_FILENO);
 			count++;
