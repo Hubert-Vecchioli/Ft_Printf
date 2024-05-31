@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:33:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/31 13:27:57 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:09:42 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,17 @@ int	ft_parse(const char *str, va_list args)
 			ft_print_conversion(args, str[i + 1], &count);
 			i++;
 		}
-		else if (str[i] != '%' || (str[i] == '%' && str[i + 1]) )
+		else if (str[i] == '%' && ft_is_type(str[i + 1]) == 0)
+		{
+			return (-1);
+		}
+		else 
 		{
 			ft_putchar_fd(str[i], STDOUT_FILENO);
 			count++;
 		}
 		i++;
 	}
-	if (i > 0 && str[i - 1] == '%')
-		return (-1);
 	return (count);
 }
 

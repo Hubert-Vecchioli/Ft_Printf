@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 16:26:04 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/31 13:29:38 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:01:22 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,26 @@ int main ()
     printf("%d\n", i);
     
 	printf("\n%\n");
+	i = printf("test %m");
+    printf("\n%d\n", i);
+    i = ft_printf("test %m");
+    printf("\n%d\n", i);
+	i = printf("%m");
+    printf("\n%d\n", i);
+    i = ft_printf("%m");
+    printf("\n%d\n", i);
+	i = printf("% ");
+    printf("\n%d\n", i);
+    i = ft_printf("% ");
+    printf("\n%d\n", i);
+	i = printf("%");
+    printf("\n%d\n", i);
+    i = ft_printf("%");
+    printf("\n%d\n", i);
+	i = printf("Original: %%");
+    printf("\n%d\n", i);
+    i = ft_printf("Perso   : %%");
+    printf("\n%d\n", i);
 	i = printf("Original: %%\n");
     printf("%d\n", i);
     i = ft_printf("Perso   : %%\n");
