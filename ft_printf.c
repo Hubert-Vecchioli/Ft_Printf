@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:33:28 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 16:47:15 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:27:57 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,18 +37,20 @@ int	ft_parse(const char *str, va_list args)
 	count = 0;
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && ft_is_type(str[i + 1]))
 		{
 			ft_print_conversion(args, str[i + 1], &count);
 			i++;
 		}
-		else
+		else if (str[i] != '%' || (str[i] == '%' && str[i + 1]) )
 		{
 			ft_putchar_fd(str[i], STDOUT_FILENO);
 			count++;
 		}
 		i++;
 	}
+	if (i > 0 && str[i - 1] == '%')
+		return (-1);
 	return (count);
 }
 
@@ -68,4 +70,12 @@ void	ft_print_conversion(va_list args, char c, size_t *count)
 		*count += ft_print_hex(va_arg(args, unsigned int), c);
 	else if (c == '%')
 		*count += ft_putchar_fd('%', STDOUT_FILENO);
+}
+
+int	ft_is_type(int c)
+{
+	if (c == 'c' || c == 's' || c == 'd' || c == 'i' || c == 'u'
+		|| c == 'x' || c == 'X' || c == 'p' || c == '%')
+		return (1);
+	return (0);
 }

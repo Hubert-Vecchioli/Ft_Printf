@@ -6,7 +6,7 @@
 /*   By: hvecchio <hvecchio@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 13:34:13 by hvecchio          #+#    #+#             */
-/*   Updated: 2024/05/30 15:59:55 by hvecchio         ###   ########.fr       */
+/*   Updated: 2024/05/31 13:21:45 by hvecchio         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 int		ft_printf(const char *str, ...);
 int		ft_parse(const char *str, va_list args);
+int	    ft_is_type(int c);
 size_t	ft_hex_len(unsigned long long nbr);
 size_t	ft_print_hex(unsigned long long nbr, char format);
 size_t	ft_print_ptr(unsigned long long ptr);
